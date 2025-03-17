@@ -21,7 +21,7 @@ export default function Dashboard() {
       }
 
       try {
-        const res = await axios.get("http://localhost:3000/api/auth/protected", {
+        const res = await axios.get(process.env.REACT_APP_API_URL + '/api/auth/protected', {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
         });

@@ -21,7 +21,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const token = getToken();
     if (token) {
-      axios.get("http://localhost:3000/api/auth/protected", {
+      axios.get( process.env.REACT_APP_API_URL + 'api/auth/protected', {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then(() => setIsAuthenticated(true))
