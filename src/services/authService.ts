@@ -1,9 +1,11 @@
 import axios, { AxiosError } from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:3000/api/auth",
+  baseURL: process.env.REACT_APP_API_URL + '/api/auth',
   withCredentials: true,
 });
+
+console.log(process.env.REACT_APP_API_URL)
 
 const getErrorMessage = (error: unknown): string => {
   const err = error as AxiosError;
